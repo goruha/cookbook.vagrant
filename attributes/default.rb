@@ -12,7 +12,7 @@ when "linux"
   when "rhel", "scientific"
     default['vagrant']['package'] << ".rpm"
   end
-when "mac_os_x"
+when "darwin"
   default['vagrant']['package'] = "Vagrant.dmg"
 when "windows", "WINNT"
   default['vagrant']['package'] = "Vagrant.msi"
