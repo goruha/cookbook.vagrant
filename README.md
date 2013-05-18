@@ -8,8 +8,6 @@ This cookbook has only been used on Ubuntu 12.04 but has been tested
 against other distros via test-kitchen.
 
 #### packages
-- `vagrant` - vagrant package 
-
 Attributes
 ----------
 #### vagrant::default
@@ -38,6 +36,11 @@ Attributes
     <td>vagrant plugins to install</td>
     <td><tt>{}</tt></td>
   </tr>
+  <tr>
+    <td><tt>['vagrant']['boxes']</tt></td>
+    <td>Hash</td>
+    <td>vagrant boxes to install</td>
+    <td><tt>{}</tt></td>
   <tr>
     <td><tt>['vagrant']['download_site']</tt></td>
     <td>String</td>
