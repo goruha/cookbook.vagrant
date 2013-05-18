@@ -37,5 +37,6 @@ suites:
   attributes: {}
 - name: plugin_lwrp
   run_list:
+  - recipe[vagrant_test]
   - recipe[vagrant_test::plugins]
   attributes: {}
