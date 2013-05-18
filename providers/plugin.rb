@@ -6,7 +6,7 @@ action :install do
   else
     command = "vagrant plugin install #{new_resource.name}"
     
-    if !new_resource.version.nil
+    if !new_resource.version.nil?
       command << " --plugin-version #{new_resource.version}"
     end
 
