@@ -33,6 +33,7 @@ platforms:
 suites:
 - name: default
   run_list: 
+  - recipe[minitest-handler]
   - recipe[vagrant_test]
   attributes: {}
 - name: plugin_lwrp
