@@ -33,5 +33,9 @@ platforms:
 suites:
 - name: default
   run_list: 
-  - recipe[vagrant]
+  - recipe[vagrant_test]
+  attributes: {}
+- name: plugin_lwrp
+  run_list:
+  - recipe[vagrant_test::plugins]
   attributes: {}
