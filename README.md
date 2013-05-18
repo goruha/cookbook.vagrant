@@ -1,4 +1,4 @@
-vagrant Cookbook
+Vagrant Cookbook
 ================
 This cookbook installs vagrant, vagrant plugins, and vagrant boxes.
 
@@ -8,6 +8,7 @@ This cookbook has only been used on Ubuntu 12.04 but has been tested
 against other distros via test-kitchen.
 
 #### packages
+
 Attributes
 ----------
 #### vagrant::default
@@ -49,20 +50,41 @@ Attributes
   </tr>
 </table>
 
+vagrant_plugin
+--------------
+
+# Actions
+
+- :install: installs the vagrant plugin
+- :uninstall: uninstalls the vagrant plugin
+
+# Attribute Parameters
+
+- name: name of the vagrant plugin
+- version: version of the vagrant plugin to install
+- source: not yet implemented
+- user: user to install the vagrant plugin as - defaults to root
+
+# Example
+
+  # install the vagrant-berkshelf plugin
+  vagrant_plugin "vagrant-berkshelf" do
+    action :install
+  end
+
+  # install the vagrant-berkshelf plugin as user test
+  vagrant_plugin "vagrant-berkshelf" do
+    action :install
+    user "test"
+  end
+
 Usage
 -----
 #### vagrant::default
+Includes the vagrant::pacakge recipe
 
-Just include `vagrant` in your node's `run_list`:
-
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[vagrant]"
-  ]
-}
-```
+#### vagrant::package
+Downloads and installs vagrant
 
 Contributing
 ------------
@@ -78,3 +100,26 @@ License and Authors
 Authors: 
 
 * Jim Rosser jarosser06@gmail.com
+
+License:
+
+Copyright 2013, Jim Rosser 
+
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
