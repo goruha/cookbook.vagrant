@@ -3,14 +3,12 @@ Vagrant Cookbook
 This cookbook installs vagrant, vagrant plugins, and vagrant boxes.
 
 Requirements
-------------
+============
 This cookbook has only been used on Ubuntu 12.04 but has been tested
 against other distros via test-kitchen.
 
-#### packages
-
 Attributes
-----------
+==========
 #### vagrant::default
 <table>
   <tr>
@@ -50,6 +48,9 @@ Attributes
   </tr>
 </table>
 
+Resource/Provider
+=================
+
 vagrant_plugin
 --------------
 
@@ -67,19 +68,19 @@ vagrant_plugin
 
 # Example
 
-  # install the vagrant-berkshelf plugin
-  vagrant_plugin "vagrant-berkshelf" do
-    action :install
-  end
+    # install the vagrant-berkshelf plugin
+    vagrant_plugin "vagrant-berkshelf" do
+      action :install
+    end
 
-  # install the vagrant-berkshelf plugin as user test
-  vagrant_plugin "vagrant-berkshelf" do
-    action :install
-    user "test"
-  end
+    # install the vagrant-berkshelf plugin as user test
+    vagrant_plugin "vagrant-berkshelf" do
+      action :install
+      user "test"
+    end
 
 Usage
------
+=====
 #### vagrant::default
 Includes the vagrant::pacakge recipe
 
@@ -87,7 +88,7 @@ Includes the vagrant::pacakge recipe
 Downloads and installs vagrant
 
 Contributing
-------------
+============
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
@@ -96,7 +97,7 @@ Contributing
 6. Submit a Pull Request using Github
 
 License and Authors
--------------------
+===================
 Authors: 
 
 * Jim Rosser jarosser06@gmail.com
