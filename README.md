@@ -79,6 +79,40 @@ vagrant_plugin
       user "test"
     end
 
+vagrant_box
+--------------
+
+# Actions
+
+- :add: adds a vagrant box 
+- :remove: removes a vagrant box 
+
+# Attribute Parameters
+
+- name: name of the vagrant box 
+- url: url of remote box 
+- provider: provider to use for this box (ex. virtualbox) 
+- user: user to install the vagrant box as - defaults to root
+
+# Example
+
+    # add the vagrant box lucid-32 
+    vagrant_box "lucid-32" do
+      action :add
+    end
+
+    # add the vagrant box lucid-32 as user test
+    vagrant_box "lucid-32" do
+      action :add
+      user "test"
+    end
+
+    # remove the vagrant box lucid-32 as user test
+    vagrant_box "lucid-32" do
+      action :remove
+      user "test"
+    end
+
 Usage
 =====
 #### vagrant::default
