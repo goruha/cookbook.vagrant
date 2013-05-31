@@ -14,11 +14,8 @@ end
 
 action :uninstall do
   if vagrant_plugin_installed? 
-    if Mixlib::ShellOut.new("vagrant plugin uninstall #{new_resource.name}", :user => new_resource.user || "root").run_command.exitstatus
-      new_resource.updated_by_last_action(false)
-    else
-      new_resource.updated_by_last_action(true)
-    end
+    Mixlib::ShellOut.new("vagrant plugin uninstall #{new_resource.name}", :user => new_resource.user || "root").run_command
+    new_resource.updated_by_last_action(true)
   else
     new_resource.updated_by_last_action(false)
   end
