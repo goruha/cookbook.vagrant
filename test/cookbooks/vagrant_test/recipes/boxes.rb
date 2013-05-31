@@ -3,6 +3,6 @@ vagrant_box "lucid-32" do
   action :add
 end
 
-vagrant_plugin "lucid-32" do
+vagrant_box "lucid-32" do
   action :remove
 end
