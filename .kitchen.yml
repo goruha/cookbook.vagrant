@@ -40,4 +40,5 @@ suites:
   run_list:
   - recipe[vagrant_test]
   - recipe[vagrant_test::plugins]
+  - recipe[vagrant_test::boxes]
   attributes: {}
