@@ -7,16 +7,21 @@ action :add do
     command = "vagrant box add #{new_resource.name} #{new_resource.url}"
     command << " --provider #{new_resource.provider}" if not new_resource.provider.nil?
 
-    if Mixlib::ShellOut.new(command, :user => new_resource.user || "root").run_command.exitstatus
-      new_resource.updated_by_last_action(false)
-    else
-      new_resource.updated_by_last_action(true)  
-    end
+    Mixlib::ShellOut.new(command, :user => new_resource.user || "root").run_command
+    new_resource.updated_by_last_action(true)
   end
 end
 
 action :remove do
-  # TODO: Implement
+  if box_exist?
+    provider = new_resource.provider || "virtualbox"
+    command = "vagrant box remove #{new_resource.nam} #{provider}"
+
+    Mixlib::ShellOut.new(command, :user => new_resource.user || "root").run_command
+    new_resource.updated_by_last_action(true)
+  else
+    new_resource.updated_by_last_action(false)
+  end
 end
 
 def box_exist?
