@@ -7,11 +7,8 @@ action :install do
     command = "vagrant plugin install #{new_resource.name}"
     command << " --plugin-version #{new_resource.version}" if !new_resource.version.nil?
 
-    if Mixlib::ShellOut.new(command, :user => new_resource.user || "root").run_command.exitstatus
-      new_resource.updated_by_last_action(false)     
-    else
-      new_resource.updated_by_last_action(true)
-    end
+    Mixlib::ShellOut.new(command, :user => new_resource.user || "root").run_command
+    new_resource.updated_by_last_action(true)
   end  
 end
 
